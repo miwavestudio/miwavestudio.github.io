@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miwave Studio</title>
+<meta name="description" content="Miwave Studio — Dream to screen. Portfolio de Mathias Lopez : créations vidéo et design graphique.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Miwave Studio — Dream to screen">
+<meta property="og:description" content="Miwave Studio — Dream to screen. Portfolio de Mathias Lopez : créations vidéo et design graphique.">
+<meta property="og:image" content="assets/video/intro.jpg">
+<link rel="icon" href="assets/img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Unica+One&family=VT323&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#contenu" data-i18n="skip">Aller au contenu</a>
+<div class="cosmos" aria-hidden="true"></div>
+
+<!-- ============ INTRO VIDÉO ============ -->
+<div id="intro" class="intro" hidden>
+  <video id="intro-video" class="intro__video" muted playsinline preload="auto" poster="assets/video/intro.jpg">
+    <source src="assets/video/intro.mp4" type="video/mp4">
+  </video>
+  <div class="intro__controls">
+    <button type="button" id="intro-sound" class="ghost-btn" aria-pressed="false">
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="wave" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="mute" d="M17 9l5 6M22 9l-5 6"/></svg>
+      <span data-i18n="intro.sound.on">Activer le son</span>
+    </button>
+    <button type="button" id="intro-skip" class="ghost-btn ghost-btn--quiet" data-i18n="intro.skip">Passer l'intro</button>
+  </div>
+</div>
+<div id="flash" class="flash" aria-hidden="true"></div>
+
+<!-- ============ EN-TÊTE ============ -->
+<header class="top" id="top">
+  <a class="top__logo" href="#voyage" aria-label="Miwave Studio">
+    <img src="assets/img/logo-mark.png" alt="" width="400" height="205">
+  </a>
+  <nav class="top__nav" data-i18n-aria="nav.label" aria-label="Navigation principale">
+    <a href="#voyage" data-route="voyage" data-i18n="nav.voyage">Voyage</a>
+    <a href="#videos" data-route="videos" data-i18n="nav.videos">Vidéos</a>
+    <a href="#design" data-route="design" data-i18n="nav.design">Design</a>
+    <a href="#a-propos" data-route="a-propos" data-i18n="nav.about">À propos</a>
+    <a href="#contact" data-route="contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <button type="button" id="replay" class="top__replay" data-i18n-aria="nav.replay" aria-label="Revoir l'intro">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.6-5.9M4 4v4h4"/><path d="M10.5 9v6l5-3z"/></svg>
+    <span data-i18n="nav.replay">Revoir l'intro</span>
+  </button>
+  <div class="lang" role="group" data-i18n-aria="lang.label" aria-label="Langue du site">
+    <button type="button" data-lang="fr" aria-pressed="true">FR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<main id="contenu">
+
+<!-- ============ VOYAGE ============ -->
+<section id="view-voyage" class="view voyage" data-view="voyage" aria-label="Voyage">
+  <div class="stage" id="stage">
+    <canvas id="space" class="stage__space" aria-hidden="true"></canvas>
+    <video id="voyage-video" class="stage__video" muted playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
+    <canvas id="constellation" class="stage__const" aria-hidden="true"></canvas>
+
+    <div class="opening" id="opening">
+      <img class="opening__logo" src="assets/img/logo.png" alt="Miwave" width="600" height="394">
+      <p class="opening__base">Dream to screen</p>
+      <h1 class="opening__title" data-i18n="hero.title">Embarque avec moi.</h1>
+      <p class="opening__story" data-i18n="hero.story">Un voyage à travers mes créations. Il te suffit de faire défiler : le vaisseau décolle, et chaque étoile filante te dévoile un projet.</p>
+      <p class="opening__hint"><span data-i18n="hero.hint">Fais défiler pour décoller</span>
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l6 6 6-6M6 13l6 6 6-6"/></svg></p>
+    </div>
+
+    <div class="comets" id="comets" aria-hidden="true"></div>
+    <div class="fx" id="fx" aria-hidden="true"></div>
+    <div class="flyby" id="flyby"></div>
+
+    <div class="final" id="final">
+      <h2 class="sr-only">Work with me!</h2>
+      <p class="final__sub" data-i18n="final.sub">Un projet vidéo, une identité, une idée à faire décoller ?</p>
+      <a class="solid-btn" href="#contact" data-i18n="final.cta">Écrire à Miwave Studio</a>
+    </div>
+
+    <div class="hud" id="hud" aria-hidden="true">
+      <svg class="hud__reticle" viewBox="0 0 200 60"><path d="M0 30h62M138 30h62M88 30h4M108 30h4M100 18v4M100 38v4"/><circle cx="100" cy="30" r="1.4"/></svg>
+      <div class="hud__block hud__block--l"><span data-i18n="hud.speed">Vitesse</span><b id="hud-speed">0,00 c</b></div>
+      <div class="hud__block hud__block--r"><span data-i18n="hud.project">Projet</span><b id="hud-count">00 / 17</b></div>
+    </div>
+
+    <div class="veil" id="veil"></div>
+    <button class="unzoom" id="unzoom" type="button" hidden><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span data-i18n="scr.back">Retour au cockpit</span></button>
+    <div class="cockpit" id="cockpit">
+      <img class="cockpit__img" src="assets/img/cockpit-base.webp" alt="" width="2048" height="1152">
+      <div class="dash" id="dash">
+        <div class="scr scr--1" data-q="476,803,426,268,-11.9">
+          <p class="scr__head" aria-hidden="true"><span>MIWAVE-OS 2.6</span><span>SYS OK</span></p>
+          <p class="scr__cmd" aria-hidden="true">&gt; ls /videos</p>
+          <a class="scr__go" href="#videos" tabindex="-1" data-i18n="nav.videos">Vidéos</a>
+          <p class="scr__sub" aria-hidden="true"><span data-i18n="scr.videos">17 fichiers</span></p>
+          <p class="scr__hint" aria-hidden="true" data-i18n="scr.hint">[ clic ] ouvrir · [ esc ] retour</p>
+          <button class="scr__zoom" type="button" data-i18n-aria="scr.zoom.videos" aria-label="Vidéos"></button>
+        </div>
+        <div class="scr scr--2" data-q="844,740,338,297,-3.6">
+          <p class="scr__head" aria-hidden="true"><span>MIWAVE-OS 2.6</span><span>SYS OK</span></p>
+          <p class="scr__cmd" aria-hidden="true">&gt; open /design</p>
+          <a class="scr__go" href="#design" tabindex="-1" data-i18n="nav.design">Design</a>
+          <p class="scr__sub" aria-hidden="true"><span data-i18n="scr.design">7 projets</span></p>
+          <p class="scr__hint" aria-hidden="true" data-i18n="scr.hint">[ clic ] ouvrir · [ esc ] retour</p>
+          <button class="scr__zoom" type="button" data-i18n-aria="scr.zoom.design" aria-label="Design"></button>
+        </div>
+        <div class="scr scr--3" data-q="1204,740,338,297,3.6">
+          <p class="scr__head" aria-hidden="true"><span>MIWAVE-OS 2.6</span><span>SYS OK</span></p>
+          <p class="scr__cmd" aria-hidden="true">&gt; whoami</p>
+          <a class="scr__go" href="#a-propos" tabindex="-1" data-i18n="nav.about">À propos</a>
+          <p class="scr__sub" aria-hidden="true">mathias.lopez</p>
+          <p class="scr__hint" aria-hidden="true" data-i18n="scr.hint">[ clic ] ouvrir · [ esc ] retour</p>
+          <button class="scr__zoom" type="button" data-i18n-aria="scr.zoom.about" aria-label="À propos"></button>
+        </div>
+        <div class="scr scr--4" data-q="1572,803,426,268,11.9">
+          <p class="scr__head" aria-hidden="true"><span>MIWAVE-OS 2.6</span><span>SYS OK</span></p>
+          <p class="scr__cmd" aria-hidden="true">&gt; ping miwave</p>
+          <a class="scr__go" href="#contact" tabindex="-1" data-i18n="nav.contact">Contact</a>
+          <p class="scr__sub" aria-hidden="true"><span data-i18n="scr.contact">réponse &lt; 48 h</span></p>
+          <p class="scr__hint" aria-hidden="true" data-i18n="scr.hint">[ clic ] ouvrir · [ esc ] retour</p>
+          <button class="scr__zoom" type="button" data-i18n-aria="scr.zoom.contact" aria-label="Contact"></button>
+        </div>
+        <i class="lever" id="lever" aria-hidden="true"></i>
+        <div class="holo" id="holo" aria-hidden="true"><i class="holo__cone"></i><div class="holo__in"><b class="holo__val" id="holo-val">100%</b><div class="holo__bat"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+      </div>
+      <img class="hand hand--l" id="hand-l" src="assets/img/hand-l.webp" alt="" width="517" height="404">
+      <img class="hand hand--r" id="hand-r" src="assets/img/hand-r.webp" alt="" width="542" height="397">
+    </div>
+
+    <div class="pager" id="pager">
+      <button type="button" id="pager-prev" data-i18n-aria="hud.prev" aria-label="Projet précédent"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+      <div class="pager__track" aria-hidden="true"><i id="pager-fill"></i></div>
+      <button type="button" id="pager-next" data-i18n-aria="hud.next" aria-label="Projet suivant"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Version sans animation (mouvements réduits) -->
+  <div class="calm" id="calm">
+    <div class="calm__head">
+      <img src="assets/img/logo.png" alt="Miwave" width="600" height="394">
+      <p class="opening__base">Dream to screen</p>
+    </div>
+    <div class="grid" id="calm-grid"></div>
+    <div class="calm__final">
+      <h2>Work with me!</h2>
+      <p data-i18n="final.sub">Un projet vidéo, une identité, une idée à faire décoller ?</p>
+      <a class="solid-btn" href="#contact" data-i18n="final.cta">Écrire à Miwave Studio</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDÉOS ============ -->
+<section id="view-videos" class="view page" data-view="videos" hidden>
+  <div class="wrap">
+    <h1 data-i18n="videos.title">Vidéos</h1>
+    <p class="lead" data-i18n="videos.lead">Toutes les créations vidéo, sans le voyage. Un clic ouvre la version complète.</p>
+    <h2 class="sub" data-i18n="videos.main">Projets</h2>
+    <div class="grid" id="grid-main"></div>
+    <h2 class="sub" data-i18n="videos.second">Commandes et formats courts</h2>
+    <div class="grid grid--small" id="grid-second"></div>
+  </div>
+</section>
+
+<!-- ============ DESIGN ============ -->
+<section id="view-design" class="view page" data-view="design" hidden>
+  <div class="wrap">
+    <h1 data-i18n="design.title">Design</h1>
+    <p class="lead" data-i18n="design.lead">Identités graphiques, affiches et mises en page. Un clic agrandit l'image.</p>
+    <div id="design-list"></div>
+  </div>
+</section>
+
+<!-- ============ À PROPOS ============ -->
+<section id="view-a-propos" class="view page page--about" data-view="a-propos" hidden>
+  <div class="wrap">
+    <div class="about">
+      <div class="about__text">
+        <h1 data-i18n="about.title">À propos</h1>
+        <p class="big" data-i18n="about.p1"></p>
+        <a class="solid-btn" href="#contact" data-i18n="about.cta">Parler d'un projet</a>
+      </div>
+      <div class="about__side">
+        <h2 class="sub" data-i18n="about.do">Ce que je fais</h2>
+        <ul class="skills">
+          <li data-i18n="about.s1"></li><li data-i18n="about.s2"></li><li data-i18n="about.s3"></li>
+          <li data-i18n="about.s4"></li><li data-i18n="about.s5"></li><li data-i18n="about.s6"></li><li data-i18n="about.s7"></li>
+        </ul>
+      </div>
+    </div>
+    <figure class="reel">
+      <video id="about-video" class="reel__video" loop muted playsinline preload="none" poster="assets/video/motion.jpg" aria-label="Miwave Studio — Dream to screen"></video>
+      <button type="button" id="about-sound" class="ghost-btn reel__sound" aria-pressed="false">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="wave" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="mute" d="M17 9l5 6M22 9l-5 6"/></svg>
+        <span data-i18n="intro.sound.on">Activer le son</span>
+      </button>
+    </figure>
+    <div class="about__mark">
+      <img src="assets/img/logo.png" alt="Miwave" width="600" height="394">
+      <p class="opening__base">Dream to screen</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="view-contact" class="view page" data-view="contact" hidden>
+  <div class="wrap contact">
+    <div class="contact__head">
+      <img class="contact__logo" src="assets/img/logo.png" alt="Miwave" width="600" height="394">
+      <img class="contact__base" src="assets/img/baseline.png" alt="Dream to screen." width="600" height="69">
+      <h1 class="contact__name" data-i18n="contact.name">Mathias Lopez — Miwave Studio</h1>
+      <p class="lead" data-i18n="contact.lead"></p>
+      <div class="mails" id="mails"></div>
+      <p class="reply" data-i18n="contact.reply"></p>
+    </div>
+    <form id="contact-form" class="form" novalidate>
+      <div class="field">
+        <label for="f-name" data-i18n="form.name">Nom</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name">
+        <p class="err" id="e-name" role="alert"></p>
+      </div>
+      <div class="field">
+        <label for="f-email" data-i18n="form.email">Adresse e-mail</label>
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-email">
+        <p class="err" id="e-email" role="alert"></p>
+      </div>
+      <fieldset class="field types">
+        <legend data-i18n="form.type">Type de demande</legend>
+        <label class="type" for="f-type-creation">
+          <input id="f-type-creation" type="radio" name="type" value="creation" checked>
+          <span><b data-i18n="form.type.creation">Demande de création</b><small data-i18n="form.type.creation.hint">Projet vidéo, design</small></span>
+        </label>
+        <label class="type" for="f-type-pro">
+          <input id="f-type-pro" type="radio" name="type" value="pro">
+          <span><b data-i18n="form.type.pro">Demande professionnelle</b><small data-i18n="form.type.pro.hint">Emploi, collaboration, partenariat</small></span>
+        </label>
+      </fieldset>
+      <div class="field">
+        <label for="f-message" data-i18n="form.message">Message</label>
+        <textarea id="f-message" name="message" rows="6" required aria-describedby="e-message"></textarea>
+        <p class="err" id="e-message" role="alert"></p>
+      </div>
+      <input type="checkbox" name="botcheck" id="f-bot" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button type="submit" class="solid-btn" id="f-send" data-i18n="form.send">Envoyer le message</button>
+      <p class="form__status" id="f-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot" id="foot">
+  <img src="assets/img/trademark.png" alt="© Miwave Studio" width="800" height="320">
+  <p>© <span id="year">2026</span> Miwave Studio. <span data-i18n="footer.rights">Tous droits réservés.</span></p>
+</footer>
+
+<!-- Navigation mobile -->
+<nav class="tabs" id="tabs" data-i18n-aria="nav.label" aria-label="Navigation principale">
+  <a href="#voyage" data-route="voyage" data-i18n="nav.voyage">Voyage</a>
+  <a href="#videos" data-route="videos" data-i18n="nav.videos">Vidéos</a>
+  <a href="#design" data-route="design" data-i18n="nav.design">Design</a>
+  <a href="#a-propos" data-route="a-propos" data-i18n="nav.about">À propos</a>
+  <a href="#contact" data-route="contact" data-i18n="nav.contact">Contact</a>
+</nav>
+
+<!-- Visionneuses -->
+<dialog id="player" class="box" aria-label="Vidéo">
+  <button type="button" class="box__close" data-close data-i18n-aria="cta.close" aria-label="Fermer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <video id="player-video" controls playsinline></video>
+</dialog>
+<dialog id="viewer" class="box" aria-label="Image">
+  <button type="button" class="box__close" data-close data-i18n-aria="cta.close" aria-label="Fermer"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  <button type="button" class="box__nav box__nav--prev" id="viewer-prev" data-i18n-aria="design.prev" aria-label="Image précédente"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <img id="viewer-img" alt="">
+  <button type="button" class="box__nav box__nav--next" id="viewer-next" data-i18n-aria="design.next" aria-label="Image suivante"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <p class="box__cap" id="viewer-cap"></p>
+</dialog>
+
+<script src="js/data.js"></script>
+<script src="js/route.js"></script>
+<script src="js/space.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
